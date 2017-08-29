@@ -9,6 +9,9 @@ if (mysqli_connect_errno()) {
 
 ?>
 <html>
+    <head>
+        <title>Welcome To Fb Clone!</title>
+    </head>
     <body>
     <?php
     
