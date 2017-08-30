@@ -33,12 +33,12 @@ if (isset($_POST['reg_button'])) {
     // Email
     $email = strip_tags($_POST['reg_email']); // remove html tags
     $email = str_replace(' ', '', $email); // remove spaces
-    $email = ucfirst(strtolower($email)); // uppercase first latter
+    $email = strtolower($email); // uppercase first latter
     
     // Email2
     $email2 = strip_tags($_POST['reg_email2']); // remove html tags
     $email2 = str_replace(' ', '', $email2); // remove spaces
-    $email2 = ucfirst(strtolower($email2)); // uppercase first latter
+    $email2 = strtolower($email2); // uppercase first latter
 
     // Pass
     $pass = strip_tags($_POST['reg_pass']); // remove html tags
@@ -47,6 +47,23 @@ if (isset($_POST['reg_button'])) {
     $pass2 = strip_tags($_POST['reg_pass2']); // remove html tags
     
     $date = date("Y-m-d");
+    
+    if ($email == $email2) {
+        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            
+            $email = filter_var($email, FILTER_VALIDATE_EMAIL);
+            
+            echo "$email is a valid email address!";
+            
+        }
+        
+        else {
+            echo "$email is not a valid email address!";
+        }
+    }
+    else {
+        echo "Emails do not match!";
+    }
     
 }
 
