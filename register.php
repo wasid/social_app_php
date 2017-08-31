@@ -49,14 +49,22 @@ if (isset($_POST['reg_button'])) {
     $date = date("Y-m-d");
     
     if ($email == $email2) {
+        
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
             
             $email = filter_var($email, FILTER_VALIDATE_EMAIL);
             
-            echo "$email is a valid email address!";
+            $e_check = mysqli_query($con, "SELECT email FROM users WHERE email = '$email' ");
             
+            $e_num_row = mysqli_num_rows($e_check);
+            
+            if ($e_num_row > 0) {
+                echo "$email email is already taken!";
+            }
+            else {
+                echo "$email is a valid email address!";
+            }
         }
-        
         else {
             echo "$email is not a valid email address!";
         }
