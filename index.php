@@ -18,5 +18,6 @@ if (mysqli_connect_errno()) {
     echo 'Hello world!';
     
     ?>
+    <a href="/register.php">Register Page</a>
     </body>
 </html>
