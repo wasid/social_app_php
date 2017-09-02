@@ -1,4 +1,5 @@
 <?php
+session_start();
 $con = mysqli_connect("localhost", "root", "", "fb_clone");
 
 if (mysqli_connect_errno()) {
@@ -24,21 +25,25 @@ if (isset($_POST['reg_button'])) {
     $fname = strip_tags($_POST['reg_fname']); // remove html tags
     $fname = str_replace(' ', '', $fname); // remove spaces
     $fname = ucfirst(strtolower($fname)); // uppercase first latter
+    $_SESSION['reg_fname'] = $fname; // storing value to session
     
     // Last Name
     $lname = strip_tags($_POST['reg_lname']); // remove html tags
     $lname = str_replace(' ', '', $lname); // remove spaces
     $lname = ucfirst(strtolower($lname)); // uppercase first latter
+    $_SESSION['reg_lname'] = $lname; // storing value to session
     
     // Email
     $email = strip_tags($_POST['reg_email']); // remove html tags
     $email = str_replace(' ', '', $email); // remove spaces
     $email = strtolower($email); // uppercase first latter
+    $_SESSION['reg_email'] = $email; // storing value to session
     
     // Email2
     $email2 = strip_tags($_POST['reg_email2']); // remove html tags
     $email2 = str_replace(' ', '', $email2); // remove spaces
     $email2 = strtolower($email2); // uppercase first latter
+    $_SESSION['reg_email2'] = $email2; // storing value to session
 
     // Pass
     $pass = strip_tags($_POST['reg_pass']); // remove html tags
@@ -104,13 +109,37 @@ if (isset($_POST['reg_button'])) {
     </head>
     <body>
         <form action="register.php" method="POST">
-            <input type="text" name="reg_fname" placeholder="First Name" required/>
+            <input type="text" name="reg_fname" placeholder="First Name" value="<?php 
+            
+            if (isset($_SESSION['reg_fname'])) {
+                echo $_SESSION['reg_fname'];
+            }
+            
+            ?>" required/>
             <br>
-            <input type="text" name="reg_lname" placeholder="Last Name" required/>
+            <input type="text" name="reg_lname" placeholder="Last Name" value="<?php 
+            
+            if (isset($_SESSION['reg_lname'])) {
+                echo $_SESSION['reg_lname'];
+            }
+            
+            ?>" required/>
             <br>
-            <input type="email" name="reg_email" placeholder="Email" required/>
+            <input type="email" name="reg_email" placeholder="Email" value="<?php 
+            
+            if (isset($_SESSION['reg_email'])) {
+                echo $_SESSION['reg_email'];
+            }
+            
+            ?>" required/>
             <br>
-            <input type="email" name="reg_email2" placeholder="Confirm Email" required/>
+            <input type="email" name="reg_email2" placeholder="Confirm Email" value="<?php 
+            
+            if (isset($_SESSION['reg_email2'])) {
+                echo $_SESSION['reg_email2'];
+            }
+            
+            ?>" required/>
             <br>
             <input type="password" name="reg_pass" placeholder="Password" required/>
             <br>
