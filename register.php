@@ -17,7 +17,7 @@ $email2 = "";
 $pass = "";
 $pass2 = "";
 $date = "";
-$error_array = "";
+$error_array = array();
 
 if (isset($_POST['reg_button'])) {
     
@@ -64,39 +64,39 @@ if (isset($_POST['reg_button'])) {
             $e_num_row = mysqli_num_rows($e_check);
             
             if ($e_num_row > 0) {
-                echo "$email email is already taken!";
+                array_push($error_array, "$email email is already taken!<br>");
             }
             else {
-                echo "$email is a valid email address!";
+                array_push($error_array, "$email is a valid email address!<br>");
             }
         }
         else {
-            echo "$email is not a valid email address!";
+            array_push($error_array, "$email is not a valid email address!<br>");
         }
     }
     else {
-        echo "Emails do not match!";
+        array_push($error_array, "Emails do not match!<br>");
     }
     
     if (strlen($fname) > 25 || strlen($fname) < 2) {
-        echo "First name must be between 2 to 25 characters!";
+        array_push($error_array, "First name must be between 2 to 25 characters!<br>");
     }
     
     if (strlen($lname) > 25 || strlen($lname) < 2) {
-        echo "Last name must be between 2 to 25 characters!";
+        array_push($error_array, "Last name must be between 2 to 25 characters!<br>");
     }
     
     if ($pass != $pass2) {
-        echo "Password do not match!";
+        array_push($error_array, "Password do not match!<br>");
     }
     else {
         if (preg_match('/[^A-Za-z0-9]/', $pass)) {
-            echo "Password can only contain english characters or numbers!";
+            array_push($error_array, "Password can only contain english characters or numbers!<br>");
         }
     }
     
     if (strlen($pass) > 30 || strlen($pass) < 5) {
-        echo "Password must be between 5 to 30 characters!";
+        array_push($error_array, "Password must be between 5 to 30 characters!<br>");
     }
     
 }
