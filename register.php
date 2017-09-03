@@ -99,6 +99,22 @@ if (isset($_POST['reg_button'])) {
         array_push($error_array, "Password must be between 5 to 30 characters!<br>");
     }
     
+    if (empty($error_array)) {
+        
+        $pass = md5($pass);
+        
+        $username = $fname . "_" . $lname;
+        $check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username' ");
+        
+        $i=0;
+        
+        while(mysqli_num_rows($check_username_query) != 0){
+            $i++;
+            $username = $username . "_" . $i;
+            $check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username' ");
+        }
+    }
+    
 }
 
 ?>
