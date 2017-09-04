@@ -113,8 +113,16 @@ if (isset($_POST['reg_button'])) {
             $username = $username . "_" . $i;
             $check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username' ");
         }
+        
+        $rand = rand(1,2);
+        
+        if ($rand = 1) {
+            $profile_pic = "assets/images/profile_pics/defaults/pro_pic1.jpg";
+        }
+        elseif ($rand = 2) {
+            $profile_pic = "assets/images/profile_pics/defaults/pro_pic2.jpg";
+        }
     }
-    
 }
 
 ?>
