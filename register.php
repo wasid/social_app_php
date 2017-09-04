@@ -121,6 +121,13 @@ if (isset($_POST['reg_button'])) {
         }
         
         $query = mysqli_query($con, "INSERT INTO users VALUES ('', '$fname', '$lname', '$username', '$email', '$pass', '$date', '$profile_pic', '0', '0', 'no', ',')");
+        
+        array_push($error_array, "<br><br><span style='color:#14c800;'>You are all set! go ahead and login!</span><br>");
+        
+        $_SESSION['reg_fname']  = "";
+        $_SESSION['reg_lname']  = "";
+        $_SESSION['reg_email']  = "";
+        $_SESSION['reg_email2'] = "";
     }
 }
 
@@ -212,6 +219,15 @@ if (isset($_POST['reg_button'])) {
             ?>
             
             <input type="submit" name="reg_button" value="Submit"/>
+            
+             <?php
+                if (in_array( "<br><br><span style='color:#14c800;'>You are all set! go ahead and login!</span><br>", $error_array)) {
+                    echo  "<br><br><span style='color:#14c800;'>You are all set! go ahead and login!</span><br>";
+                }
+            ?>
+            
+           
+            
         </form>
     </body>
 </html>
