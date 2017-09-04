@@ -66,9 +66,6 @@ if (isset($_POST['reg_button'])) {
             if ($e_num_row > 0) {
                 array_push($error_array, "$email email is already taken!<br>");
             }
-            else {
-                array_push($error_array, "$email is a valid email address!<br>");
-            }
         }
         else {
             array_push($error_array, "$email is not a valid email address!<br>");
@@ -103,7 +100,7 @@ if (isset($_POST['reg_button'])) {
         
         $pass = md5($pass);
         
-        $username = $fname . "_" . $lname;
+        $username = strtolower($fname . "_" . $lname);
         $check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username' ");
         
         $i=0;
@@ -122,6 +119,8 @@ if (isset($_POST['reg_button'])) {
         elseif ($rand = 2) {
             $profile_pic = "assets/images/profile_pics/defaults/pro_pic2.jpg";
         }
+        
+        $query = mysqli_query($con, "INSERT INTO users VALUES ('', '$fname', '$lname', '$username', '$email', '$pass', '$date', '$profile_pic', '0', '0', 'no', ',')");
     }
 }
 
@@ -186,9 +185,6 @@ if (isset($_POST['reg_button'])) {
             <?php
                 if (in_array("$email email is already taken!<br>", $error_array)) {
                     echo "$email email is already taken!<br>";
-                }
-                elseif (in_array("$email is a valid email address!<br>", $error_array)) {
-                    echo "$email is a valid email address!<br>";
                 }
                 elseif (in_array("$email is not a valid email address!<br>", $error_array)) {
                     echo "$email is not a valid email address!<br>";
