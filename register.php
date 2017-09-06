@@ -9,6 +9,7 @@ require "includes/form_handler/login_handler.php";
 <html>
     <head>
         <title>Welcome To Fb Clone!</title>
+        <link rel="stylesheet" href="assets/css/register_style.css" type="text/css" />
     </head>
     <body>
         
