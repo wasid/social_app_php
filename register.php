@@ -10,6 +10,15 @@ require "form_handler/register_handler.php";
         <title>Welcome To Fb Clone!</title>
     </head>
     <body>
+        
+        <form action="register.php" method="POST">
+            <input type="email" name="log_email" placeholder="Email" required/>
+            <br>
+            <input type="password" name="log_pass" placeholder="Password" required/>
+            <br>
+            <input type="submit" name="log_button" value="Login"/>
+        </form>
+        
         <form action="register.php" method="POST">
             <input type="text" name="reg_fname" placeholder="First Name" value="<?php 
             
@@ -90,7 +99,7 @@ require "form_handler/register_handler.php";
                 }
             ?>
             
-            <input type="submit" name="reg_button" value="Submit"/>
+            <input type="submit" name="reg_button" value="Register"/>
             
              <?php
                 if (in_array( "<br><br><span style='color:#14c800;'>You are all set! go ahead and login!</span><br>", $error_array)) {
