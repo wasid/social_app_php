@@ -17,6 +17,12 @@ if (isset($_POST['log_button'])) {
             $row = mysqli_fetch_array($database_check_query);
             $username = $row['username'];
             
+            $user_closed_query = mysqli_query($con, "SELECT * FROM users WHERE email ='$email' AND user_closed = 'yes'");
+            $check_closed_user = mysqli_num_rows($user_closed_query);
+            if ($check_closed_user == 1) {
+                $reopen_user = mysqli_query($con, "UPDATE users SET user_closed = 'no' WHERE email ='$email'");
+            }
+            
             $_SESSION['username'] = $username;
             header("Location: index.php");
             exit();
