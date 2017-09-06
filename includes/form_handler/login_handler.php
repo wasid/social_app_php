@@ -18,8 +18,11 @@ if (isset($_POST['log_button'])) {
             $username = $row['username'];
             
             $_SESSION['username'] = $username;
-            header("Location : index.php");
+            header("Location: index.php");
             exit();
+        }
+        else{
+            array_push($error_array, "<br><span style='color:red;'>Email or Password was incorrect!</span><br>");
         }
 
     }
