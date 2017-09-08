@@ -13,7 +13,11 @@ require "includes/form_handler/login_handler.php";
     </head>
     <body>
         <div class="wrapper">
-            <div class="login_box">    
+            <div class="login_box"> 
+            <div class="login_header">
+                <h1>FB Clone</h1>
+                Login or Sign Up!
+            </div>
                 <form action="register.php" method="POST">
                     <input type="email" name="log_email" placeholder="Email" value="<?php 
                     
