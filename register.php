@@ -20,6 +20,25 @@ require "includes/form_handler/login_handler.php";
                     <h1>FB Clone!</h1>
                     Login or Sign Up!
                 </div>
+                <?php
+                if (isset($_POST["reg_button"])) {
+                
+                    echo '
+                    <script>
+                        
+                        $(document).ready(function(){
+                            $("#first").hide();
+                            $("#second").show();
+                        });
+                    
+                    </script>
+                    
+                    ';
+                }
+                
+                
+                
+                ?>
                 <div id="first">
                     <form action="register.php" method="POST">
                         <input type="email" name="log_email" placeholder="Email" value="<?php 
