@@ -3,8 +3,6 @@
     
     include "includes/header.php";
     
-    session_destroy();
-    
     ?>
     Hello world!
     <br>
