@@ -1,17 +1,13 @@
-<?php
-require "config/config.php";
 
-?>
-<html>
-    <head>
-        <title>Welcome To Fb Clone!</title>
-    </head>
-    <body>
     <?php
     
-    echo 'Hello world!';
+    include "includes/header.php";
+    
+    session_destroy();
     
     ?>
+    Hello world!
+    <br>
     <a href="/register.php">Register Page</a>
     </body>
 </html>

@@ -58,7 +58,7 @@ require "includes/form_handler/login_handler.php";
                             }
                         ?>
                         <br>
-                        <a href="#" id="signup">Not have a acount? Register here!</a>
+                        <a href="#" id="signup">Not have an acount? Register here!</a>
                         
                     </form>
                 </div>  
