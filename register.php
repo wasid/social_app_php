@@ -9,7 +9,9 @@ require "includes/form_handler/login_handler.php";
 <html>
     <head>
         <title>Welcome To Fb Clone!</title>
+        <!--CSS-->
         <link rel="stylesheet" href="assets/css/register_style.css" type="text/css" />
+        <!--JS-->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script type="text/javascript" src="../assets/js/custom.js"></script>
     </head>
