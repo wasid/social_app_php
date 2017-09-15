@@ -4,8 +4,10 @@
     include "includes/header.php";
     
     ?>
-    Hello world!
-    <br>
-    <a href="/register.php">Register Page</a>
+        <div class="user_details column">
+            <a href="#"><img src="<?php echo $user['profile_pic']; ?>"></img></a>
+        </div>
+    </div> 
+    <!--End of wrapper div-->
     </body>
 </html>
